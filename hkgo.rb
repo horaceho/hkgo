@@ -50,12 +50,9 @@ end
 def convert(rows, options)
     records = {}
     players = {}
+    count = 1
     rows.each do |row|
-        players[row[:name]] = {
-            :id => row[:id],
-            :name => row[:name],
-        }
-
+        count += 1
         1.upto(8) do |i|
             number = "r#{i}"
             result = row[number.to_sym]
@@ -63,6 +60,7 @@ def convert(rows, options)
 
             player1 = row[:name]
             player2 = row["o#{i}".to_sym]
+            next STDERR.puts "Row #{count} O#{i} same player #{player1}" if player1 == player2
 
             records[{
                 :match => row[:match],
@@ -73,6 +71,13 @@ def convert(rows, options)
                 :date => row[:date],
                 :winner => (result > 0) ? player1 : player2,
             }
+
+            players[player1] = {
+                :name => player1,
+            }
+            players[player2] = {
+                :name => player2,
+            }
         end
     end
     return records, players
@@ -81,7 +86,7 @@ end
 def export(records, players, filename, options)
     if options[:output][:record]
         puts "Date,Player1,Player1 Rank,Player2,Player2 Ranks,Handicap,Difference," \
-            "Winner Name,Winnder Side,Result,Organization,Match,Round,Link,Remark"
+            "Winner Name,Winner Side,Result,Organization,Match,Round,Link,Remark"
         records.each do |key, value|
             puts "#{value[:date]},#{key[:player1]},,#{key[:player2]},,,0," \
                 "#{value[:winner]},,,,#{key[:match]},,"
