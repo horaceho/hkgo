@@ -80,8 +80,11 @@ end
 
 def export(records, players, filename, options)
     if options[:output][:record]
+        puts "Date,Player1,Player1 Rank,Player2,Player2 Ranks,Handicap,Difference," \
+            "Winner Name,Winnder Side,Result,Organization,Match,Round,Link,Remark"
         records.each do |key, value|
-            # puts key, value
+            puts "#{value[:date]},#{key[:player1]},,#{key[:player2]},,,0," \
+                "#{value[:winner]},,,,#{key[:match]},,"
         end
     end
     if options[:output][:player]
