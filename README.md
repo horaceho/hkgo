@@ -30,4 +30,8 @@ ruby ./hkgo.rb --player data/HKGODB_game_record_2022.xlsx > test/HKGODB-2022-pla
 ruby ./hkgo.rb --record data/HKGODB_game_record_2022.xlsx > test/HKGODB-2022-record.csv
 ```
 
+### 嗚謝 Acknowledgement
+
+- Thomas Lau 提供數據及建議 for data and guidance.
+
 &copy; 2023 [Horace Ho](https://horaceho.com)
