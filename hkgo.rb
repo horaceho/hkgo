@@ -3,7 +3,7 @@ require 'roo'
 
 options = {
     :default => {
-        :ranks => '1d',
+        :ranks => 'na',
     },
     :output => {
         :record => false,
