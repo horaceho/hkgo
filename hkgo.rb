@@ -54,8 +54,8 @@ def convert(rows, options)
     rows.each do |row|
         count += 1
         1.upto(8) do |i|
-            number = "r#{i}"
-            result = row[number.to_sym]
+            round = "r#{i}"
+            result = row[round.to_sym]
             next if result.nil?
 
             player1 = row[:name]
@@ -66,7 +66,7 @@ def convert(rows, options)
                 :match => row[:match],
                 :player1 => player1,
                 :player2 => player2,
-                :number => number,
+                :round => round,
             }] = {
                 :date => row[:date],
                 :winner => (result > 0) ? player1 : player2,
@@ -89,7 +89,7 @@ def export(records, players, filename, options)
             "Winner Name,Winner Side,Result,Organization,Match,Round,Link,Remark"
         records.each do |key, value|
             puts "#{value[:date]},#{key[:player1]},,#{key[:player2]},,,0," \
-                "#{value[:winner]},,,,#{key[:match]},,"
+                "#{value[:winner]},,,,#{key[:match]},#{key[:round].upcase},,"
         end
     end
     if options[:output][:player]

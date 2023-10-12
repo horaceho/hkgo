@@ -24,10 +24,10 @@ Usage: ruby hogo.rb [options] {file}
 ### 測試 Test
 ```bash
 mkdir -p test
-cp ./data/HKGODB_game_record_2022.xlsx ./test/
+cp ./data/HKGODB_game_record_2018_2023_open.xlsx ./test/
 
-ruby ./hkgo.rb --player data/HKGODB_game_record_2022.xlsx > test/HKGODB-2022-player.csv
-ruby ./hkgo.rb --record data/HKGODB_game_record_2022.xlsx > test/HKGODB-2022-record.csv
+ruby ./hkgo.rb --player data/HKGODB_game_record_2018_2023_open.xlsx > test/HKGODB-2018-2023-open-player.csv
+ruby ./hkgo.rb --record data/HKGODB_game_record_2018_2023_open.xlsx > test/HKGODB-2018-2023-open-record.csv
 ```
 
 ### 嗚謝 Acknowledgement
