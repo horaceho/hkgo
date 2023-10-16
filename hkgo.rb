@@ -60,7 +60,7 @@ def convert(rows, options)
 
             player1 = row[:name]
             player2 = row["o#{i}".to_sym]
-            next STDERR.puts "Row #{count} O#{i} same player #{player1}" if player1 == player2
+            next STDERR.puts "Row: #{count} Same player: #{player1} Match: #{row[:match]} Opponent: O#{i} " if player1 == player2
 
             records[{
                 :match => row[:match],
