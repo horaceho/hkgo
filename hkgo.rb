@@ -55,7 +55,7 @@ def convert(rows, options)
         count += 1
 
         player1 = row[:name]
-        STDERR.puts "Row: #{count} Player name: #{player1}" if player1 =~ /\?/
+        STDERR.puts "Row: #{count} Player name: #{player1} Date: #{row[:date]} Match: #{row[:match]}" if player1 =~ /\?/
 
         1.upto(8) do |i|
             round = "r#{i}"
@@ -65,7 +65,7 @@ def convert(rows, options)
             player2 = row["o#{i}".to_sym]
             next STDERR.puts "Row: #{count} Same player: #{player1} Date: #{row[:date]} Match: #{row[:match]} Opponent: O#{i} " if player1 == player2
 
-            STDERR.puts "Row: #{count} Player name: #{player2}" if player2 =~ /\?/
+            STDERR.puts "Row: #{count} Player name: #{player2} Date: #{row[:date]} Match: #{row[:match]}" if player2 =~ /\?/
 
             records[{
                 :match => row[:match],
